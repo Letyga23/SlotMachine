@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\GUI">
+      <UniqueIdentifier>{e4b20a5b-59a2-4198-b38d-1bad9161a386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GUI\Buttons">
+      <UniqueIdentifier>{5368f55c-0307-49b9-9f05-eb8177cc1446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\GUI\Reel">
+      <UniqueIdentifier>{e9f34d06-388c-4d61-bde4-5bf1570ed1e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\State">
+      <UniqueIdentifier>{8ce7d2cc-9ef3-4298-9064-bc0d637f2570}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\Utils">
+      <UniqueIdentifier>{5157b6c5-18e2-44a3-8332-ae8b4711129a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\State">
+      <UniqueIdentifier>{63be210e-73dd-47a2-a7c1-4c565aeae02a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\Utils">
+      <UniqueIdentifier>{7dc3f825-aefe-4198-b637-d51a92015f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\GUI">
+      <UniqueIdentifier>{433cd5f6-360e-4fd3-a718-ca8ea78d9965}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\GUI\Buttons">
+      <UniqueIdentifier>{464a871a-8a42-4adb-ae15-92b836ee10dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\GUI\Reel">
+      <UniqueIdentifier>{7a32b2c5-24b5-486b-ba5f-841f5ba14f66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Исходные файлы\GUI\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameReels.cpp">
+      <Filter>Исходные файлы\GUI\Reel</Filter>
+    </ClCompile>
+    <ClCompile Include="Reel.cpp">
+      <Filter>Исходные файлы\GUI\Reel</Filter>
+    </ClCompile>
+    <ClCompile Include="StartButton.cpp">
+      <Filter>Исходные файлы\GUI\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="StopButton.cpp">
+      <Filter>Исходные файлы\GUI\Buttons</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStateMachine.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowWinState.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="SpinningState.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="StartSpinningState.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="StoppingSpinningState.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="WaitingForPlayerState.cpp">
+      <Filter>Исходные файлы\State</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGameForm.cpp">
+      <Filter>Исходные файлы\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="PricesPoints.cpp">
+      <Filter>Исходные файлы\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ResultGame.cpp">
+      <Filter>Исходные файлы\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Исходные файлы\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkingWithTextures.cpp">
+      <Filter>Исходные файлы\Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="StoppingSpinningState.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="WaitingForPlayerState.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="StartSpinningState.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinningState.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowWinState.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStateMachine.h">
+      <Filter>Файлы заголовков\State</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkingWithTextures.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLog.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Other_Files\stb_image.h">
+      <Filter>Файлы заголовков\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="StartButton.h">
+      <Filter>Файлы заголовков\GUI\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="StopButton.h">
+      <Filter>Файлы заголовков\GUI\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Файлы заголовков\GUI\Buttons</Filter>
+    </ClInclude>
+    <ClInclude Include="GameReels.h">
+      <Filter>Файлы заголовков\GUI\Reel</Filter>
+    </ClInclude>
+    <ClInclude Include="Reel.h">
+      <Filter>Файлы заголовков\GUI\Reel</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGameForm.h">
+      <Filter>Файлы заголовков\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="PricesPoints.h">
+      <Filter>Файлы заголовков\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ResultGame.h">
+      <Filter>Файлы заголовков\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Файлы заголовков\GUI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SlotMachine.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Image\cherry.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\clover.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\diamond.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\grape.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\heart.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\lemon.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="Image\seven.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
