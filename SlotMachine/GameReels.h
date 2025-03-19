@@ -12,7 +12,7 @@ class GameReels
     float x, y;         
     float width, height;
     std::vector<std::shared_ptr<Reel>> reels;
-    int countReels = 5;
+    int countReels = 5; //Количество барабанов
 
 public:
     GameReels(float x, float y, float width, float height);
@@ -21,6 +21,7 @@ public:
     void stop();
     std::list<int> getListCurrentIndexs();
     void initializeSymbols();
+    bool isSpining();
 
 private:
     void startStopReels(void(Reel::* action)());

@@ -6,6 +6,7 @@ class StartSpinningState : public State
 {
 public:
     void handle() override;
+    StateType getType() const override;
 };
 
 

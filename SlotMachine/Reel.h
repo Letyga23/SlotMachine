@@ -16,7 +16,7 @@ class Reel
 	float width, height;
 	float currentSpeed;			//текущая скорость
 	float targetSpeed;			//целевая скорость (максимальная скорость)
-	int currentIndex;			//индекс текущего изображения на экране
+	float currentIndex;			//индекс текущего изображения на экране
 	float offset;				//смещение для анимации (для плавного движения)
 	int countFigures;			//количество фигур
 	bool isSpinning;			//флаг определяющий крутится барабан или нет
@@ -49,6 +49,7 @@ public:
 	float getWidth();
 	int getCentralIndex();
 	void initializeSymbols();
+	bool getIsSpinning();
 
 private:
 	void drawShape(float x, float y, GLuint textureID);

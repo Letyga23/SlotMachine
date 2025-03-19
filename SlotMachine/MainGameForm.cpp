@@ -8,13 +8,14 @@ std::shared_ptr<ResultGame> MainGameForm::resultGame = nullptr;
 
 MainGameForm::MainGameForm()
 {
-    startButton = std::make_shared<StartButton>(0.6f, 0.9f, 0.3f, 0.15f, "Start");
-    stopButton = std::make_shared<StopButton>(0.6f, 0.9f, 0.3f, 0.15f, "Stop");
+    startButton = std::make_shared<StartButton>(0.6f, -0.7f, 0.3f, 0.15f, "Start");
+    stopButton = std::make_shared<StopButton>(0.6f, -0.7f, 0.3f, 0.15f, "Stop");
     reels = std::make_shared<GameReels>(-0.95f, -0.9f, 1.5f, 1.8f);
-    pricesPoints = std::make_shared<PricesPoints>(0.58f, 0.55f);
-    resultGame = std::make_shared<ResultGame>(0.58f, -0.4f);
+    pricesPoints = std::make_shared<PricesPoints>(0.58f, 0.8f);
+    resultGame = std::make_shared<ResultGame>(0.6f, 0.1f);
 
     stopButton->hide();
+    resultGame->hide();
 }
 
 void MainGameForm::renderScene()

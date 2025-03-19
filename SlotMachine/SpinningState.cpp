@@ -3,6 +3,10 @@
 
 void SpinningState::handle()
 {
-	DebugLog("SpinningState");
 	MainGameForm::getStopButton()->show();
+}
+
+StateType SpinningState::getType() const
+{
+	return StateType::SpinningState;
 }

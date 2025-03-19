@@ -3,7 +3,11 @@
 
 void StoppingSpinningState::handle()
 {
-	DebugLog("StoppingSpinningState");
 	MainGameForm::getReels()->stop();
 	MainGameForm::getStopButton()->hide();
+}
+
+StateType StoppingSpinningState::getType() const
+{
+	return StateType::StoppingSpinningState;
 }

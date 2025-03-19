@@ -13,13 +13,12 @@ class ResultGame
 
 public:
 	ResultGame(float x, float y);
-
+	void calculationsScore();
 	void draw();
 	void show();
 	void hide();
 
 private:
-	void calculationsScore();
 	void renderText();
 };
 

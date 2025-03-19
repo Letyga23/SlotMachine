@@ -1,6 +1,13 @@
 #include "WaitingForPlayerState.h"
+#include "MainGameForm.h"
 
 void WaitingForPlayerState::handle()
 {
-	DebugLog("WaitingForPlayerState");
+	MainGameForm::getStartButton()->show();
 }
+
+StateType WaitingForPlayerState::getType() const
+{
+	return StateType::WaitingForPlayerState;
+}
+

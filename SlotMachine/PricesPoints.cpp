@@ -12,22 +12,25 @@ void PricesPoints::draw()
     float currentY = y;
     int count = 0;
 
-    for (const auto& scoringImage : scoringImages)
-    {
-        WorkingWithTextures::drawTexture(scoringImage.textureID, currentX, currentY, 0.1f, 0.1f);
-        renderText(std::to_string(scoringImage.points), currentX + 0.11f, currentY + 0.02f);
+    //Количество столбцов
+    int columns = 2;
+    int rows = (scoringImages.size() + columns - 1) / columns; //Расчёт количество строк
+    float columnSpacing = 0.22f;
 
-        count++;
-        if (count % 2 == 0)
+    for (int i = 0; i < rows; ++i)
+    {
+        for (int j = 0; j < columns; ++j)
         {
-            currentX = x;
-            currentY -= margin;
+            int index = j * rows + i; 
+
+            if (index >= scoringImages.size())
+                break; 
+
+            WorkingWithTextures::drawTexture(scoringImages[index].textureID, currentX + j * columnSpacing, currentY - i * margin, 0.1f, 0.1f);
+            renderText(std::to_string(scoringImages[index].points), currentX + j * columnSpacing + 0.11f, currentY - i * margin + 0.02f);
         }
-        else
-            currentX += 0.2f;  
     }
 }
-
 
 void PricesPoints::addImage(GLuint textureID, int points)
 {
@@ -45,5 +48,5 @@ void PricesPoints::renderText(const std::string& text, float x, float y)
     glRasterPos2f(x, y);
     std::string displayText = '-' + text;
     for (char c : displayText)
-        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c); 
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c); 
 }

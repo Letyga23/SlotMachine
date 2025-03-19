@@ -37,6 +37,18 @@ void GameReels::draw()
     drawBlackout();
 
     glDisable(GL_SCISSOR_TEST);
+
+    if (!reels.back()->getIsSpinning()) //Проверяю остановлен ли последний элемент так как с наиболшей вероятностью остановится последним
+    {
+        if (!isSpining()) //Проверка остановлены ли все барабаны
+            GameStateMachine::getInstance().setState(std::make_unique<ShowWinState>());
+    }
+    else
+    {
+        if (isSpining())
+            GameStateMachine::getInstance().setState(std::make_unique<SpinningState>());
+    }
+
 }
 
 void GameReels::start()
@@ -62,6 +74,13 @@ void GameReels::initializeSymbols()
 {
     for (std::shared_ptr<Reel> reel : reels)
         reel->initializeSymbols();
+}
+
+bool GameReels::isSpining()
+{
+    return std::any_of(reels.begin(), reels.end(), [](const std::shared_ptr<Reel>& reel) {
+        return reel->getIsSpinning();
+        });
 }
 
 void GameReels::startStopReels(void (Reel::* action)())

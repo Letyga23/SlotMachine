@@ -3,7 +3,12 @@
 
 void StartSpinningState::handle()
 {
-	DebugLog("StartSpinningState");
 	MainGameForm::getReels()->start();
 	MainGameForm::getStartButton()->hide();
+	MainGameForm::getResultGame()->hide();
+}
+
+StateType StartSpinningState::getType() const
+{
+	return StateType::StartSpinningState;
 }

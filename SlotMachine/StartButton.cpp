@@ -8,5 +8,4 @@ StartButton::StartButton(float x, float y, float width, float height, const char
 void StartButton::onClick()
 {
 	stateMachine.setState(std::make_unique<StartSpinningState>());
-	stateMachine.update();
 }

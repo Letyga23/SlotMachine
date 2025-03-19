@@ -15,7 +15,6 @@ void ResultGame::draw()
 {
 	if (!isVisible) return;
 
-	calculationsScore();
 	renderText();
 }
 
@@ -38,8 +37,10 @@ void ResultGame::calculationsScore()
 	{
 		if (index > maxIndex)
 			index = 0;
+		//DebugLog(index);
 		score += pricesPoints->getScore(index);
 	}
+	//DebugLog("-------");
 }
 
 void ResultGame::renderText()
@@ -48,5 +49,5 @@ void ResultGame::renderText()
 	glRasterPos2f(x, y);
 	std::string displayText = "Result: " + std::to_string(score) +  " score";
 	for (char c : displayText)
-		glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, c);
+		glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, c);
 }

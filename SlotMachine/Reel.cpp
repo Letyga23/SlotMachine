@@ -8,9 +8,9 @@ Reel::Reel(float x, float y, float width, float height, float centralPosition) :
     centralPosition(centralPosition),
     offset(0.0f), 
     currentSpeed(0.0f), 
-    targetSpeed(0.05f),
-    accelerationValue(0.0001f),
-    decelerationValue(0.0002f),
+    targetSpeed(0.01f),
+    accelerationValue(0.00001f),
+    decelerationValue(0.00002f),
     isSpinning(false),
     isStarting(false),
     isStoping(false)
@@ -46,6 +46,11 @@ void Reel::initializeSymbols()
     }
 }
 
+bool Reel::getIsSpinning()
+{
+    return isSpinning;
+}
+
 void Reel::speedChange()
 {
     if (isStarting)
@@ -63,8 +68,6 @@ void Reel::acceleration()
     {
         isSpinning = true;
         isStarting = false;
-        GameStateMachine::getInstance().setState(std::make_unique<SpinningState>());
-        GameStateMachine::getInstance().update();
     }
 }
 
@@ -78,8 +81,6 @@ void Reel::deceleration()
         alignToCentralPosition();
         isSpinning = false;
         isStoping = false;
-        GameStateMachine::getInstance().setState(std::make_unique<ShowWinState>());
-        GameStateMachine::getInstance().update();
     }
 }
 
@@ -93,24 +94,15 @@ void Reel::draw()
     if (offset >= height / 2.0f)
         offset -= height;
 
-    //Рисуем изображения барабана
-    //for (int i = 0; i < countFigures; ++i) 
-    //{
-    //    float currentY = y + (i - 1) * height - offset;
-    //    int index = static_cast<int>(fmod(currentIndex + i, countFigures));
-    //    drawShape(x, currentY, index);
-    //}
-
     for (int i = 0; i < countFigures; ++i) 
     {
         float currentY = y + (i - 1) * height - offset;
         int index = static_cast<int>(fmod(currentIndex + i, countFigures));
-        //symbols[index].y = currentY - offset;
         symbols[index].y = currentY;
         drawShape(x, currentY, symbols[index].textureID);
     }
 
-    ////Обновление текущего индекса изображения
+    //Обновление текущего индекса изображения
     currentIndex += currentSpeed / height;
     if (currentIndex >= countFigures)
         currentIndex = 0.0f;
@@ -134,8 +126,9 @@ void Reel::alignToCentralPosition()
     if (offset < 0)
         offset += height;
 
-    float targetIndex = round(currentIndex);
-    currentIndex = targetIndex;
+    currentIndex += currentSpeed / height;
+    if (currentIndex >= countFigures)
+        currentIndex = 0.0f;
 }
 
 void Reel::drawShape(float x, float y, GLuint textureID)
@@ -183,6 +176,7 @@ int Reel::getCentralIndex()
     std::vector<ReelSymbol> selectedSymbols;
     for (const auto& symbol : symbols)
     {
+        //DebugLog(std::to_string(symbol.index) + ": " + std::to_string(symbol.y));
         if (symbol.y > 0.0f)
             continue;
 
@@ -194,6 +188,7 @@ int Reel::getCentralIndex()
     for (const auto& symbol : selectedSymbols)
     {
         float dist = std::fabs(symbol.y); 
+        //DebugLog(std::to_string(symbol.index) + ": " + std::to_string(symbol.y) + " dist: " + std::to_string(dist));
 
         if (dist < minDist) 
         {
@@ -201,8 +196,8 @@ int Reel::getCentralIndex()
             bestIndex = symbol.index;
         }
     }
-
-
+    //DebugLog("Best symbol index: " + std::to_string(bestIndex));
+    //DebugLog("Best symbol Y: " + std::to_string(symbols[bestIndex].y));
     return bestIndex;
 }
 

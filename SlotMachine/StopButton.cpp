@@ -8,5 +8,4 @@ StopButton::StopButton(float x, float y, float width, float height, const char* 
 void StopButton::onClick()
 {
 	stateMachine.setState(std::make_unique<StoppingSpinningState>());
-	stateMachine.update();
 }

@@ -1,4 +1,6 @@
 #pragma once
+#include <map>
+
 #include "WaitingForPlayerState.h"
 #include "ShowWinState.h"
 #include "SpinningState.h"
@@ -9,6 +11,7 @@
 class GameStateMachine {
 private:
     std::unique_ptr<State> currentState;
+    std::map<StateType, StateType> allowedTransitions;
 
     GameStateMachine();
 
