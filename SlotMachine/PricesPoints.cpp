@@ -34,6 +34,11 @@ void PricesPoints::addImage(GLuint textureID, int points)
 	scoringImages.push_back({ textureID, points });
 }
 
+int PricesPoints::getScore(int index)
+{
+    return scoringImages[index].points;
+}
+
 void PricesPoints::renderText(const std::string& text, float x, float y)
 {
     glColor3f(1.0f, 1.0f, 1.0f);

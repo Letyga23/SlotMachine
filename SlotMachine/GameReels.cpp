@@ -49,6 +49,15 @@ void GameReels::stop()
     startStopReels(&Reel::stop);
 }
 
+std::list<int> GameReels::getListCurrentIndexs()
+{
+    std::list<int> valuesList;
+    for (std::shared_ptr<Reel> reel : reels)
+        valuesList.push_back(reel->getCurrentIndex());
+
+    return valuesList;
+}
+
 void GameReels::startStopReels(void (Reel::* action)())
 {
     for (size_t i = 0; i < reels.size(); ++i)

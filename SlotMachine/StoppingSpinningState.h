@@ -1,7 +1,7 @@
 #pragma once
 #include "State.h"
 
-//—осто¤ние остановки вращени¤ барабанов
+//состояние остановки вращения барабанов
 class StoppingSpinningState : public State
 {
 public:

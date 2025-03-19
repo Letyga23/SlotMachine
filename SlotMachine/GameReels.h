@@ -19,6 +19,7 @@ public:
     void draw();
     void start();
     void stop();
+    std::list<int> getListCurrentIndexs();
 
 private:
     void startStopReels(void(Reel::* action)());

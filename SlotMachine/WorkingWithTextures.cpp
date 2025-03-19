@@ -1,6 +1,6 @@
 #include "WorkingWithTextures.h"
 #define STB_IMAGE_IMPLEMENTATION
-#include "Other_Files/stb_image.h"
+#include "stb_image.h"
 
 //Хэш-карта для хранения текстур по индексам
 std::map<int, GLuint> WorkingWithTextures::textureCache;

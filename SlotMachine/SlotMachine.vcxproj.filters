@@ -131,9 +131,6 @@
     <ClInclude Include="DebugLog.h">
       <Filter>Файлы заголовков\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="Other_Files\stb_image.h">
-      <Filter>Файлы заголовков\Utils</Filter>
-    </ClInclude>
     <ClInclude Include="StartButton.h">
       <Filter>Файлы заголовков\GUI\Buttons</Filter>
     </ClInclude>

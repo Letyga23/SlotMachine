@@ -1,5 +1,4 @@
 #pragma once
-#include <GL/freeglut.h>
 #include <string>
 
 class ResultGame
@@ -7,6 +6,7 @@ class ResultGame
 	float x, y;
 	bool isVisible;
 	int score;
+	int maxIndex;
 
 public:
 	ResultGame(float x, float y);
@@ -17,6 +17,6 @@ public:
 
 private:
 	void calculationsScore();
-	void renderText(float x, float y);
+	void renderText();
 };
 

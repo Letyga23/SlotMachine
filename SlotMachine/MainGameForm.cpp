@@ -64,11 +64,11 @@ void MainGameForm::mouseMotion(int x, int y)
 
 void MainGameForm::init()
 {
-    glutMouseFunc(mouseButton); //–егистраци¤ обработки кликов
-    glutPassiveMotionFunc(mouseMotion); //–егистраци¤ обработки движени¤ мыши
+    glutMouseFunc(mouseButton); //–егистрация обработки кликов
+    glutPassiveMotionFunc(mouseMotion); //–егистрация обработки движения мыши
 
     HINSTANCE hInstance = GetModuleHandle(NULL);
-    std::vector<int> points = { 10, 20, 20, 30, 40, 50, 70 };
+    std::vector<int> points = { 10, 20, 30, 40, 50, 60, 70 };
     for (int i = 0; i < points.size(); ++i)
     {
         GLuint textureID = WorkingWithTextures::getTextureFromCache(hInstance, i);
@@ -89,6 +89,11 @@ std::shared_ptr<StartButton> MainGameForm::getStartButton()
 std::shared_ptr<StopButton> MainGameForm::getStopButton()
 {
     return stopButton;
+}
+
+std::shared_ptr<PricesPoints> MainGameForm::getPricesPoints()
+{
+    return pricesPoints;
 }
 
 std::shared_ptr<ResultGame> MainGameForm::getResultGame()

@@ -1,7 +1,5 @@
 #include "Reel.h"
 
-std::map<Reel*, int> Reel::allCurrentIndexs;
-
 Reel::Reel(float x, float y, float width, float height, float centralPosition) :
     x(x),
     y(y),
@@ -10,14 +8,13 @@ Reel::Reel(float x, float y, float width, float height, float centralPosition) :
     centralPosition(centralPosition),
     offset(0.0f), 
     currentSpeed(0.0f), 
-    targetSpeed(0.0f), 
+    targetSpeed(0.05f),
     accelerationValue(0.0001f),
     decelerationValue(0.0002f),
     isSpinning(false),
     isStarting(false),
     isStoping(false)
 {
-    countFigures = WorkingWithTextures::getCountTexture();
     initializeIndex();
 
     cell_W = width * (1.0f - margin);
@@ -25,6 +22,16 @@ Reel::Reel(float x, float y, float width, float height, float centralPosition) :
 
     offsetX = (width - cell_W) / 2.0f;
     offsetY = (height - cell_H) / 2.0f;
+
+    alignToCentralPosition();
+}
+
+void Reel::initializeIndex()
+{
+    countFigures = WorkingWithTextures::getCountTexture();
+    std::srand(static_cast<unsigned int>(std::time(nullptr)) + reinterpret_cast<std::intptr_t>(this));
+    int countFiguresInt = static_cast<int>(countFigures);
+    currentIndex = static_cast<float>(std::rand() % countFiguresInt);
 }
 
 void Reel::speedChange()
@@ -49,12 +56,6 @@ void Reel::acceleration()
     }
 }
 
-void Reel::initializeIndex()
-{
-    std::srand(static_cast<unsigned int>(std::time(nullptr)) + reinterpret_cast<std::intptr_t>(this));
-    currentIndex = static_cast<float>(std::rand() % countFigures);
-}
-
 //Замедляем скорость
 void Reel::deceleration()
 {
@@ -62,11 +63,11 @@ void Reel::deceleration()
         currentSpeed = std::max(currentSpeed - decelerationValue, 0.0f);
     else
     {
+        alignToCentralPosition();
         isSpinning = false;
         isStoping = false;
         GameStateMachine::getInstance().setState(std::make_unique<ShowWinState>());
         GameStateMachine::getInstance().update();
-        alignToCentralPosition();
     }
 }
 
@@ -76,8 +77,12 @@ void Reel::draw()
 
     //Обновление смещения для вращения
     offset += currentSpeed;
-    if (offset >= height)
+
+    if (offset >= height / 2.0f)
+    {
         offset -= height;
+        //currentIndex = static_cast<int>(currentIndex + 1) % countFigures;
+    }
 
     //Рисуем изображения барабана
     for (int i = 0; i < countFigures; ++i) 
@@ -87,23 +92,20 @@ void Reel::draw()
         drawShape(x, currentY, index);
     }
 
-    //Обновление текущего индекса изображения
+    ////Обновление текущего индекса изображения
     currentIndex += currentSpeed / height;
+    DebugLog(currentIndex);
     if (currentIndex >= countFigures)
-        currentIndex -= countFigures;
-
-    allCurrentIndexs[this] = currentIndex;
+        currentIndex = 0.0f;
 }
 
 void Reel::start()
 {
-    targetSpeed = 0.05f;
     isStarting = true;
 }
 
 void Reel::stop()
 {
-    targetSpeed = 0.00f;
     isStoping = true;
 }
 
@@ -141,6 +143,12 @@ float Reel::getHeight()
 float Reel::getWidth()
 {
     return cell_W;
+}
+
+int Reel::getCurrentIndex()
+{
+    float targetIndex = round(currentIndex);
+    return static_cast<int>(targetIndex);
 }
 
 void Reel::drawFrame(float x, float y, float width, float height)

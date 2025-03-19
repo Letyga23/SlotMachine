@@ -5,7 +5,7 @@
 #include "StartSpinningState.h"
 #include "StoppingSpinningState.h"
 
-//Класс машины состо¤ний
+//Класс машины состояний
 class GameStateMachine {
 private:
     std::unique_ptr<State> currentState;

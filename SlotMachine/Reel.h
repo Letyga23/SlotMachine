@@ -5,6 +5,7 @@
 #include <cmath>
 #include <ctime>
 #include <map>
+#include <list>
 #include "DebugLog.h"
 #include "WorkingWithTextures.h"
 #include "GameStateMachine.h"
@@ -13,24 +14,22 @@ class Reel
 {
 	float x, y;         
 	float width, height;
-	float currentSpeed;			//“екуща¤ скорость
-	float targetSpeed;			//÷елева¤ скорость (максимальна¤ скорость)
-	float currentIndex;			//»ндекс текущего изображени¤ на экране
-	float offset;				//—мещение дл¤ анимации (дл¤ плавного движени¤)
-	int countFigures;			// оличество фигур
-	bool isSpinning;			//‘лаг определ¤ющий крутитс¤ барабан или нет
-	bool isStarting;			//‘лаг определ¤ющий запускаетс¤ ли барабан
-	bool isStoping;				//‘лаг определ¤ющий останавливаетс¤ ли барабан
-	const float margin = 0.2f;	//ќтступ
-	const float accelerationValue;	//”скорение при старте
-	const float decelerationValue;	//«амедление при остановке
-	float cell_W;				//Ўирина ¤чейки
-	float cell_H;				//¬ысота ¤чейки
+	float currentSpeed;			//текущая скорость
+	float targetSpeed;			//целевая скорость (максимальная скорость)
+	float currentIndex;			//индекс текущего изображения на экране
+	float offset;				//смещение для анимации (для плавного движения)
+	float countFigures;			//количество фигур
+	bool isSpinning;			//флаг определяющий крутится барабан или нет
+	bool isStarting;			//флаг определяющий запускается ли барабан
+	bool isStoping;				//флаг определяющий останавливается ли барабан
+	const float margin = 0.2f;	//отступ
+	const float accelerationValue;	//ускорение при старте
+	const float decelerationValue;	//замедление при остановке
+	float cell_W;				//ширина ячейки
+	float cell_H;				//высота ячейки
 	float offsetX;
 	float offsetY;
-	float centralPosition;		//÷ентрпальна¤ позици¤ барабана
-	static std::map<Reel*, int> allCurrentIndexs;	//¬се текушие индексы
-
+	float centralPosition;		//центрпальная позиция барабана
 
 public:
 	Reel(float x, float y, float width, float height, float centralPosition);
@@ -39,6 +38,7 @@ public:
 	void stop();
 	float getHeight();
 	float getWidth();
+	int getCurrentIndex();
 
 private:
 	void drawShape(float x, float y, int index);

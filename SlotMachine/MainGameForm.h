@@ -26,6 +26,7 @@ public:
 	static std::shared_ptr<GameReels> getReels();
 	static std::shared_ptr<StartButton> getStartButton();
 	static std::shared_ptr<StopButton> getStopButton();
+	static std::shared_ptr<PricesPoints> getPricesPoints();
 	static std::shared_ptr<ResultGame> getResultGame();
 
 private:
