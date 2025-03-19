@@ -101,9 +101,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
-      <Filter>Файлы заголовков</Filter>
-    </ClInclude>
     <ClInclude Include="StoppingSpinningState.h">
       <Filter>Файлы заголовков\State</Filter>
     </ClInclude>
@@ -158,6 +155,9 @@
     <ClInclude Include="Window.h">
       <Filter>Файлы заголовков\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SlotMachine.rc">
@@ -165,25 +165,25 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Image\cherry.png">
+    <Image Include="Other_Files\Image\cherry.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\clover.png">
+    <Image Include="Other_Files\Image\clover.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\diamond.png">
+    <Image Include="Other_Files\Image\diamond.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\grape.png">
+    <Image Include="Other_Files\Image\grape.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\heart.png">
+    <Image Include="Other_Files\Image\heart.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\lemon.png">
+    <Image Include="Other_Files\Image\lemon.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-    <Image Include="Image\seven.png">
+    <Image Include="Other_Files\Image\seven.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
   </ItemGroup>

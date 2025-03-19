@@ -13,7 +13,7 @@ class PricesPoints
 
 	float x, y;
 	std::vector<ScoringImage> scoringImages; //Список изображений и их очков
-	float margin = 0.15f;  //Отступ между миниатюрами картинок
+	float margin = 0.17f;  //Отступ между миниатюрами картинок
 
 public:
 	PricesPoints(float x, float y);

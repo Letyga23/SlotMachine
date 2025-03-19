@@ -50,19 +50,19 @@ END
 // PNG
 //
 
-IDB_PNG1                PNG                     "Image\\cherry.png"
+IDB_PNG1                PNG                     "Other_Files\\Image\\cherry.png"
 
-IDB_PNG2                PNG                     "Image\\clover.png"
+IDB_PNG2                PNG                     "Other_Files\\Image\\clover.png"
 
-IDB_PNG3                PNG                     "Image\\diamond.png"
+IDB_PNG3                PNG                     "Other_Files\\Image\\diamond.png"
 
-IDB_PNG4                PNG                     "Image\\grape.png"
+IDB_PNG4                PNG                     "Other_Files\\Image\\grape.png"
 
-IDB_PNG5                PNG                     "Image\\heart.png"
+IDB_PNG5                PNG                     "Other_Files\\Image\\heart.png"
 
-IDB_PNG6                PNG                     "Image\\lemon.png"
+IDB_PNG6                PNG                     "Other_Files\\Image\\lemon.png"
 
-IDB_PNG7                PNG                     "Image\\seven.png"
+IDB_PNG7                PNG                     "Other_Files\\Image\\seven.png"
 
 #endif    // Русский (Россия) resources
 /////////////////////////////////////////////////////////////////////////////

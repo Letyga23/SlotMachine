@@ -148,7 +148,7 @@ void GameReels::drawBlackout()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    float centralPanelHeight = reels[0]->getHeight();
+    float centralPanelHeight = reels[0]->getHeight() + 0.05f;
     float centralPanelWidth = width;
     float offsetX = x;
     float offsetY = y + (height - centralPanelHeight) / 2.0f;

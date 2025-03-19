@@ -63,13 +63,13 @@
     <ResourceCompile Include="SlotMachine.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Image\cherry.png" />
-    <Image Include="Image\clover.png" />
-    <Image Include="Image\diamond.png" />
-    <Image Include="Image\grape.png" />
-    <Image Include="Image\heart.png" />
-    <Image Include="Image\lemon.png" />
-    <Image Include="Image\seven.png" />
+    <Image Include="Other_Files\Image\cherry.png" />
+    <Image Include="Other_Files\Image\clover.png" />
+    <Image Include="Other_Files\Image\diamond.png" />
+    <Image Include="Other_Files\Image\grape.png" />
+    <Image Include="Other_Files\Image\heart.png" />
+    <Image Include="Other_Files\Image\lemon.png" />
+    <Image Include="Other_Files\Image\seven.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

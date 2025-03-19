@@ -26,7 +26,7 @@ void PricesPoints::draw()
             if (index >= scoringImages.size())
                 break; 
 
-            WorkingWithTextures::drawTexture(scoringImages[index].textureID, currentX + j * columnSpacing, currentY - i * margin, 0.1f, 0.1f);
+            WorkingWithTextures::drawTexture(scoringImages[index].textureID, currentX + j * columnSpacing, currentY - i * margin, 0.1f, 0.13f);
             renderText(std::to_string(scoringImages[index].points), currentX + j * columnSpacing + 0.11f, currentY - i * margin + 0.02f);
         }
     }
