@@ -30,8 +30,20 @@ void Reel::initializeIndex()
 {
     countFigures = WorkingWithTextures::getCountTexture();
     std::srand(static_cast<unsigned int>(std::time(nullptr)) + reinterpret_cast<std::intptr_t>(this));
-    int countFiguresInt = static_cast<int>(countFigures);
-    currentIndex = static_cast<float>(std::rand() % countFiguresInt);
+    currentIndex = static_cast<float>(std::rand() % countFigures);
+}
+
+void Reel::initializeSymbols()
+{
+    HINSTANCE hInstance = GetModuleHandle(NULL);
+    for (int i = 0; i < countFigures; ++i) 
+    {
+        ReelSymbol symbol;
+        symbol.textureID = WorkingWithTextures::getTextureFromCache(hInstance, i);
+        symbol.index = i;
+        symbol.y = y + i * cell_H;
+        symbols.push_back(symbol);
+    }
 }
 
 void Reel::speedChange()
@@ -79,22 +91,27 @@ void Reel::draw()
     offset += currentSpeed;
 
     if (offset >= height / 2.0f)
-    {
         offset -= height;
-        //currentIndex = static_cast<int>(currentIndex + 1) % countFigures;
-    }
 
     //Рисуем изображения барабана
+    //for (int i = 0; i < countFigures; ++i) 
+    //{
+    //    float currentY = y + (i - 1) * height - offset;
+    //    int index = static_cast<int>(fmod(currentIndex + i, countFigures));
+    //    drawShape(x, currentY, index);
+    //}
+
     for (int i = 0; i < countFigures; ++i) 
     {
         float currentY = y + (i - 1) * height - offset;
         int index = static_cast<int>(fmod(currentIndex + i, countFigures));
-        drawShape(x, currentY, index);
+        //symbols[index].y = currentY - offset;
+        symbols[index].y = currentY;
+        drawShape(x, currentY, symbols[index].textureID);
     }
 
     ////Обновление текущего индекса изображения
     currentIndex += currentSpeed / height;
-    DebugLog(currentIndex);
     if (currentIndex >= countFigures)
         currentIndex = 0.0f;
 }
@@ -121,15 +138,12 @@ void Reel::alignToCentralPosition()
     currentIndex = targetIndex;
 }
 
-void Reel::drawShape(float x, float y, int index)
+void Reel::drawShape(float x, float y, GLuint textureID)
 {
     glPushMatrix();
     glTranslatef(x, y, 0);
 
-    HINSTANCE hInstance = GetModuleHandle(NULL);
-    GLuint textureID = WorkingWithTextures::getTextureFromCache(hInstance, index);
-    if (textureID != 0)
-        WorkingWithTextures::drawTexture(textureID, offsetX, offsetY, cell_W, cell_H);
+    WorkingWithTextures::drawTexture(textureID, offsetX, offsetY, cell_W, cell_H);
 
     drawFrame(offsetX, offsetY, cell_W, cell_H);
     glPopMatrix();
@@ -143,12 +157,6 @@ float Reel::getHeight()
 float Reel::getWidth()
 {
     return cell_W;
-}
-
-int Reel::getCurrentIndex()
-{
-    float targetIndex = round(currentIndex);
-    return static_cast<int>(targetIndex);
 }
 
 void Reel::drawFrame(float x, float y, float width, float height)
@@ -170,5 +178,31 @@ void Reel::drawFrame(float x, float y, float width, float height)
     glLineWidth(1.0f);
 }
 
+int Reel::getCentralIndex() 
+{
+    std::vector<ReelSymbol> selectedSymbols;
+    for (const auto& symbol : symbols)
+    {
+        if (symbol.y > 0.0f)
+            continue;
 
+        selectedSymbols.push_back(symbol);
+    }
+
+    float minDist = std::numeric_limits<float>::max();
+    int bestIndex = -1;
+    for (const auto& symbol : selectedSymbols)
+    {
+        float dist = std::fabs(symbol.y); 
+
+        if (dist < minDist) 
+        {
+            minDist = dist;
+            bestIndex = symbol.index;
+        }
+    }
+
+
+    return bestIndex;
+}
 

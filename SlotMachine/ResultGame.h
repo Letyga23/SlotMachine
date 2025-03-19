@@ -1,5 +1,7 @@
 #pragma once
 #include <string>
+#include <memory>
+#include "PricesPoints.h"
 
 class ResultGame
 {
@@ -7,6 +9,7 @@ class ResultGame
 	bool isVisible;
 	int score;
 	int maxIndex;
+	std::shared_ptr<PricesPoints> pricesPoints;
 
 public:
 	ResultGame(float x, float y);

@@ -8,6 +8,7 @@ ResultGame::ResultGame(float x, float y) :
 	score(0)
 {
 	maxIndex = WorkingWithTextures::getCountTexture() - 1;
+	pricesPoints = MainGameForm::getPricesPoints();
 }
 
 void ResultGame::draw()
@@ -32,23 +33,13 @@ void ResultGame::calculationsScore()
 {
 	std::list<int> listIndexs = MainGameForm::getReels()->getListCurrentIndexs();
 	score = 0;
-	std::shared_ptr<PricesPoints> pricesPoints = MainGameForm::getPricesPoints();
 
 	for (int index : listIndexs)
 	{
-		
-		index++;
-		//index++;
-		//index++;
-
-
 		if (index > maxIndex)
 			index = 0;
-
-		DebugLog(index);
 		score += pricesPoints->getScore(index);
 	}
-	DebugLog("-----");
 }
 
 void ResultGame::renderText()

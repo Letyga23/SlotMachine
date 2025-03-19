@@ -1,7 +1,7 @@
 #pragma once
 #include <GL/glew.h>
 #include <memory>
-#include <vector>
+#include <list>
 #include <chrono>
 #include <thread>
 #include <random>
@@ -20,6 +20,7 @@ public:
     void start();
     void stop();
     std::list<int> getListCurrentIndexs();
+    void initializeSymbols();
 
 private:
     void startStopReels(void(Reel::* action)());

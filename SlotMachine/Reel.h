@@ -5,7 +5,7 @@
 #include <cmath>
 #include <ctime>
 #include <map>
-#include <list>
+#include <vector>
 #include "DebugLog.h"
 #include "WorkingWithTextures.h"
 #include "GameStateMachine.h"
@@ -16,9 +16,9 @@ class Reel
 	float width, height;
 	float currentSpeed;			//текущая скорость
 	float targetSpeed;			//целевая скорость (максимальная скорость)
-	float currentIndex;			//индекс текущего изображения на экране
+	int currentIndex;			//индекс текущего изображения на экране
 	float offset;				//смещение для анимации (для плавного движения)
-	float countFigures;			//количество фигур
+	int countFigures;			//количество фигур
 	bool isSpinning;			//флаг определяющий крутится барабан или нет
 	bool isStarting;			//флаг определяющий запускается ли барабан
 	bool isStoping;				//флаг определяющий останавливается ли барабан
@@ -31,6 +31,15 @@ class Reel
 	float offsetY;
 	float centralPosition;		//центрпальная позиция барабана
 
+	struct ReelSymbol 
+	{
+		GLuint textureID;  //Идентификатор текстуры
+		int index;         //Индекс текстуры в массиве
+		float y;           //Текущая координата Y
+	};
+
+	std::vector<ReelSymbol> symbols;
+
 public:
 	Reel(float x, float y, float width, float height, float centralPosition);
 	void draw();
@@ -38,10 +47,11 @@ public:
 	void stop();
 	float getHeight();
 	float getWidth();
-	int getCurrentIndex();
+	int getCentralIndex();
+	void initializeSymbols();
 
 private:
-	void drawShape(float x, float y, int index);
+	void drawShape(float x, float y, GLuint textureID);
 	void drawFrame(float x, float y, float width, float height);
 	void alignToCentralPosition();
 	void speedChange();

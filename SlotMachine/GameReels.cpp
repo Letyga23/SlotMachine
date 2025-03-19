@@ -53,9 +53,15 @@ std::list<int> GameReels::getListCurrentIndexs()
 {
     std::list<int> valuesList;
     for (std::shared_ptr<Reel> reel : reels)
-        valuesList.push_back(reel->getCurrentIndex());
+        valuesList.push_back(reel->getCentralIndex());
 
     return valuesList;
+}
+
+void GameReels::initializeSymbols()
+{
+    for (std::shared_ptr<Reel> reel : reels)
+        reel->initializeSymbols();
 }
 
 void GameReels::startStopReels(void (Reel::* action)())

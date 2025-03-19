@@ -74,6 +74,8 @@ void MainGameForm::init()
         GLuint textureID = WorkingWithTextures::getTextureFromCache(hInstance, i);
         pricesPoints->addImage(textureID, points[i]);
     }
+
+    reels->initializeSymbols();
 }
 
 std::shared_ptr<GameReels> MainGameForm::getReels()
