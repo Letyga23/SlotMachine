@@ -8,9 +8,9 @@ Reel::Reel(float x, float y, float width, float height, float centralPosition) :
     centralPosition(centralPosition),
     offset(0.0f), 
     currentSpeed(0.0f), 
-    targetSpeed(0.01f),
-    accelerationValue(0.00001f),
-    decelerationValue(0.00002f),
+    targetSpeed(0.03f),
+    accelerationValue(0.00005f),
+    decelerationValue(0.00009f),
     isSpinning(false),
     isStarting(false),
     isStoping(false)
