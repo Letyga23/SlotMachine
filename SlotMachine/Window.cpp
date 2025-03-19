@@ -24,7 +24,6 @@ void Window::init()
     glutCreateWindow(windowTitle);
 
     glewInit();
-
     mainGameForm->init();
 
     glutDisplayFunc(display);

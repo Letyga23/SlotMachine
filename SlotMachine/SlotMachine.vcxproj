@@ -68,6 +68,7 @@
     <Image Include="Other_Files\Image\diamond.png" />
     <Image Include="Other_Files\Image\grape.png" />
     <Image Include="Other_Files\Image\heart.png" />
+    <Image Include="Other_Files\Image\icon.ico" />
     <Image Include="Other_Files\Image\lemon.png" />
     <Image Include="Other_Files\Image\seven.png" />
   </ItemGroup>

@@ -64,6 +64,16 @@ IDB_PNG6                PNG                     "Other_Files\\Image\\lemon.png"
 
 IDB_PNG7                PNG                     "Other_Files\\Image\\seven.png"
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "Other_Files\\Image\\icon.ico"
+
 #endif    // Русский (Россия) resources
 /////////////////////////////////////////////////////////////////////////////
 

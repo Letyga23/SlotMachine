@@ -186,5 +186,8 @@
     <Image Include="Other_Files\Image\seven.png">
       <Filter>Файлы ресурсов</Filter>
     </Image>
+    <Image Include="Other_Files\Image\icon.ico">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
   </ItemGroup>
 </Project>
